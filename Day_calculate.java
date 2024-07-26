@@ -10,12 +10,12 @@ public class DayCalculator {
         System.out.println("Enter the month (mm): ");
         int mm = sc.nextInt();
 
-        System.out.println("Enter the year (yy): ");
+        System.out.println("Enter the year (yyyy): ");
         int yy = sc.nextInt();
 
         int[] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        if ((yy % 4 == 0 && yy % 100!= 0) || (yy % 400 == 0)) {
+        if ((yy % 4 == 0 && yy % 100 != 0) || (yy % 400 == 0)) {
             daysInMonth[2] = 29;
         }
 
@@ -39,29 +39,9 @@ public class DayCalculator {
 
         int totalOddDays = totalDays % 7;
 
-        switch (totalOddDays) {
-            case 0:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Sunday");
-                break;
-            case 1:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Monday");
-                break;
-            case 2:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Tuesday");
-                break;
-            case 3:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Wednesday");
-                break;
-            case 4:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Thursday");
-                break;
-            case 5:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Friday");
-                break;
-            case 6:
-                System.out.println("On " + dd + " - " + mm + " - " + yy + " the day is: Saturday");
-                break;
-        }
+        String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+        System.out.println("On " + dd + "-" + mm + "-" + yy + " the day is: " + daysOfWeek[totalOddDays]);
 
         sc.close();
     }
